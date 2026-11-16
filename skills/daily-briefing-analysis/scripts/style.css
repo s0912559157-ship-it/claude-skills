@@ -1,0 +1,39 @@
+@page{size:1440px 810px;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;color:#14213d}
+.slide{width:1440px;height:810px;background:#eef1f5;padding:96px 96px 70px;position:relative;page-break-after:always;overflow:hidden}
+.kick{font-size:21px;font-weight:700;color:#2f5e8e;margin-bottom:12px;letter-spacing:.5px}
+.kick.ask{color:#b85c1e}
+h1{font-family:'Noto Serif TC',serif;font-size:50px;line-height:1.25;color:#14213d;margin-bottom:30px;font-weight:700}
+.cover{background:#14213d;color:#fff;padding-top:200px}
+.cover .kick{color:#f0a35e}
+.cover h1{font-size:68px;color:#fff;margin-bottom:26px}
+.cover .sub{font-size:26px;color:#c9d3e3;line-height:1.5}
+.end{background:#2f5e8e}
+.end .kick{color:#dbe6f3;margin-top:150px}
+.end h1{color:#fff;font-size:58px}
+.end p{color:#e6eef8;font-size:24px;line-height:1.7;max-width:1200px}
+.cover .foot,.end .foot{color:#9fb0c8}
+.stats{display:flex;gap:56px;margin-bottom:28px}
+.stat .n{font-size:52px;font-weight:700;line-height:1.05;color:#14213d}
+.stat:nth-child(1) .n{color:#2f5e8e}
+.stat.o .n{color:#b85c1e}
+.stat .l{font-size:19px;color:#3a4560;margin-top:6px;line-height:1.4}
+.cards{display:grid;gap:22px;margin-bottom:26px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:1fr 1fr 1fr}.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid #dfe4ec;border-radius:12px;padding:26px 30px}
+.card h3{font-size:25px;color:#2f5e8e;margin-bottom:12px;font-weight:700}
+.card p{font-size:20px;line-height:1.6;color:#1f2a44}
+.card.hl{background:#14213d;border-color:#14213d}
+.card.hl h3{color:#f0a35e}.card.hl p{color:#fff}
+table{width:100%;border-collapse:collapse;margin-bottom:26px;font-size:21px}
+th{color:#2f5e8e;text-align:left;padding:12px 16px;font-weight:700;border-bottom:1px solid #c9d1dd}
+td{padding:13px 16px;border-bottom:1px solid #d3d9e3;line-height:1.45;vertical-align:top}
+.note{font-size:21px;line-height:1.65;color:#3a4560;max-width:1240px;margin-bottom:8px}
+.note b{color:#14213d}
+.lead{font-family:'Noto Serif TC',serif;font-size:32px;line-height:1.6;color:#14213d;margin:6px 0 26px;max-width:1150px}
+.flow{display:flex;gap:10px;margin-bottom:26px}
+.step{flex:1;background:#fff;border:1px solid #dfe4ec;border-radius:12px;padding:20px 20px;font-size:19px;line-height:1.55}
+.step b{color:#2f5e8e;font-size:21px}
+.arr{display:flex;align-items:center;font-size:26px;color:#b85c1e}
+.foot{position:absolute;left:96px;right:96px;bottom:34px;font-size:15px;color:#5b6577;display:flex;gap:30px}
