@@ -1,6 +1,6 @@
 ---
 name: daily-briefing-analysis
-description: Use when the user says 讀取今日簡報 or asks to analyze today's briefing: summarize it, analyze market/international/AI news by the bundled frameworks with an independent subagent, and build PDF decks.
+description: Use when the user says 讀取今日簡報, asks for today's morning brief, or asks to analyze today's briefing: generate or summarize it, analyze market/international/AI news by the bundled frameworks with an independent subagent, and build PDF decks.
 ---
 
 # 每日簡報分析流程
@@ -12,6 +12,7 @@ description: Use when the user says 讀取今日簡報 or asks to analyze today'
 
 | 檔案 | 用途 |
 |---|---|
+| `references/morning-brief.md` | 產生晨間簡報（當日簡報）的指令 |
 | `references/market-framework.md` | 市場分析框架（五步） |
 | `references/intl-framework.md` | 國際局勢分析框架（四步） |
 | `references/ai-framework.md` | AI 新聞分析框架（以國際框架為底） |
@@ -31,7 +32,7 @@ description: Use when the user says 讀取今日簡報 or asks to analyze today'
 依序嘗試，找到就停：
 1. 用戶這次訊息附上的檔案（HTML／PDF）或連結。
 2. 有連接用戶電腦時：`閒聊/每日簡報/MMDD/當日簡報/` 裡的晨間簡報。
-3. 以上都沒有 → 請用戶上傳或貼連結，**不要自己上網拼一份簡報**。
+3. 以上都沒有 → 問用戶要上傳現成的簡報，還是現在照 `references/morning-brief.md` 產生一份。用戶說「做今天的簡報」時直接產生。
 
 拿到後：
 - 先核對簡報日期是不是今天（台北時間）。不是的話，告訴用戶簡報日期，問要用這份還是等新的。
@@ -81,7 +82,7 @@ description: Use when the user says 讀取今日簡報 or asks to analyze today'
 
 | 狀況 | 處理 |
 |---|---|
-| 找不到今日簡報 | 請用戶上傳或給連結，停在這一步 |
+| 找不到今日簡報 | 請用戶上傳、給連結，或照 `references/morning-brief.md` 現在產生一份 |
 | 簡報日期不是今天 | 告訴用戶簡報日期，問要用這份還是等新的 |
 | 框架檔不見或讀不到 | 停下來告訴用戶缺哪一份，不要憑記憶分析 |
 | 沒有 Playwright／Chromium 且裝不了 | 交付 `render(..., pdf=False)` 產生的 HTML，請用戶用瀏覽器「列印成 PDF」（版面 1440×810、背景圖形打開） |

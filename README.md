@@ -4,7 +4,7 @@
 
 | Skill | 用途 |
 |---|---|
-| [daily-briefing-analysis](skills/daily-briefing-analysis/SKILL.md) | 讀取今日簡報：摘要晨間簡報，依市場／國際局勢／AI 三份分析框架（搭配獨立 subagent 雙向挑戰）分析新聞，做成 PDF 簡報。 |
+| [daily-briefing-analysis](skills/daily-briefing-analysis/SKILL.md) | 產生或讀取今日簡報：摘要晨間簡報，依市場／國際局勢／AI 三份分析框架（搭配獨立 subagent 雙向挑戰）分析新聞，做成 PDF 簡報。 |
 
 ## 安裝到新設備
 
