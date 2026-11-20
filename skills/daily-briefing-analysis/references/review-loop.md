@@ -12,7 +12,7 @@
 | `修改案/YYYY-MM-DD-proposal.md` | 當天修改案；開頭寫「第 N 輪第 N 天」，第 3 天那份就是本輪合併修改案 |
 | `source-registry.md` | 來源登記表（見 `source-registry.md`） |
 
-已經推到 GitHub 的改動以 Git 的 commit 紀錄為準，不另外存檔。
+已經推到 GitHub 的改動以 Git 的 commit 紀錄為準。另外，每次把修改推到 GitHub 之前，先把**修改前**的整個 Skill 資料夾複製到 repo 的 `archive/YYYY-MM-DD-修改前/`（用推送當天的日期），方便使用者不用 Git 也能對照舊版；推完要告訴使用者備份在哪裡。
 
 ## 每天（做完當天的簡報之後）
 

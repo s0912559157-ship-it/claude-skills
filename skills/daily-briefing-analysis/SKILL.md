@@ -59,6 +59,20 @@ HOME_DIR/
 - 當天第 6 步（評分與修改案）寫完後，**刪掉整個 `TMP`**。
 - 收尾前列一次 `HOME_DIR` 的內容，確認只有上面那些檔案；多出來的是你產生的就刪掉，不是你產生的不要動。
 
+### 開工檢查：簡報工具
+
+開工時先確認做 PDF 的工具能用（Python 3＋Playwright＋Chromium）：
+
+```
+python3 -c "from playwright.sync_api import sync_playwright"
+```
+
+失敗就照第 4 步安裝；已有 Chromium 可設 `DECK_CHROMIUM`。裝不了就照「出錯時怎麼辦」交付 HTML，並一開始就告訴使用者。
+
+### 追蹤表日期
+
+讀 `紀錄/tracker.md` 開頭的「最後更新」。不是上一個工作日就先告訴使用者：上次的更新可能沒寫回，這次的分析會少掉那些項目。
+
 ### 今天是循環第幾天
 
 讀 `紀錄/修改案/` 裡最新一份的開頭（寫著「第 N 輪第 N 天」）。沒有任何修改案時，今天是第 1 輪第 1 天。
@@ -87,10 +101,13 @@ HOME_DIR/
   2. subagent 只拿簡報、框架、追蹤表，獨立寫 `agent-round1.md`。
   3. 雙方都寫完才交換，互相挑戰（`main-round2.md`、`agent-round2.md`）。
   4. 記下最強反對意見與它的去向。雙方一致不算多一份證據。
-- 校正晨間簡報的錯誤說法（日期、程序階段、來源性質）。
+- **最強反對意見**：每個保留下來的核心主張（至少每則新聞一個）都要一行最強反對意見與去向（排除／未排除／改寫結論），而且要針對**最後留下的結論**；第 1 輪後撤回的初版另外列，不能拿來充數。
+- **影響與觀察點**：每則新聞至少一行，不能留空；到期的追蹤項目出刊前要處理，或寫明新的期限。
+- **校正晨間簡報**的錯誤說法（日期、程序階段、來源性質）有門檻：要更正，或要拿某個事實當「證據缺口」「削弱某個解釋的證據」，必須有截止前最新的**至少兩個獨立報導**（同一通訊社的不同轉載算一個）。做不到就標【說法衝突】，而且不拿來削弱任何解釋。
 - 底稿（main-round1、agent-round1/2、main-round2）都寫在 `TMP/{market|intl|ai}/`。
 - 更新 `HOME_DIR/紀錄/tracker.md`：新增項目、改狀態、寫到期日（寫明時區）。
 - 環境不能開 subagent 時：告訴使用者這次只有單一分析者，並在簡報封面註明「未經獨立 agent 挑戰」。
+- **可以分時段做**：使用者可以指定先做其中幾份（例如市場等中午收盤後再做），其餘之後補做。當天的評分與修改案等最後一份做完才定稿。
 
 ### 每日新知
 
@@ -104,7 +121,7 @@ HOME_DIR/
 
 ## 4. 做成簡報
 
-- 必須符合 `references/deck-requirements.md`：一句話結論（含信心程度）、追蹤表頁、來源清單頁。
+- 必須符合 `references/deck-requirements.md`：一句話結論（信心高／中／低）、每則影響與觀察點、固定頁序（結論 → 追蹤表 → 來源清單在最後）、時間口徑，以及每份簡報都要完整（不寫「見市場簡報」）。
 
 - 用 `scripts/deck.py`：照 `scripts/example_deck.py` 寫一支當日腳本放在 `TMP/decks/{market|intl|ai}.py`，呼叫 `render()` 在 `TMP/decks/` 產生 HTML＋PDF。腳本開頭用 `sys.path.insert(0, '<這個 Skill 的 scripts 資料夾>')` 匯入 `deck`。
 - 需要 Python 3 與 Playwright：`pip install -r scripts/requirements.txt && python -m playwright install chromium`。已有 Chromium 時可設環境變數 `DECK_CHROMIUM=<chrome 執行檔路徑>`。
@@ -126,9 +143,10 @@ HOME_DIR/
 1. 照 `references/scorecard.md` 打分（自評＋獨立 agent），存 `HOME_DIR/紀錄/評分/YYYY-MM-DD-scorecard.md`。
 2. 照 `references/review-loop.md` 寫當天修改案，存 `HOME_DIR/紀錄/修改案/YYYY-MM-DD-proposal.md`，開頭寫「第 N 輪第 N 天」。
 3. 更新 `HOME_DIR/紀錄/source-registry.md` 的使用次數與被更正次數。
-4. 把分數與修改案重點告訴使用者。
-5. 刪掉 `TMP`，列一次 `HOME_DIR` 確認只剩規定的檔案。
-6. 第 3 天：合併成本輪修改案給使用者看，使用者同意的部分才改 Skill 並推到 GitHub。
+4. **把今天的追蹤表寫回 `HOME_DIR/紀錄/tracker.md`**，並把開頭的「最後更新」改成現在（寫明時區）。工作中若把追蹤表複製到 `TMP`，這一步一定要寫回，否則隔天會讀到舊版。
+5. 把分數與修改案重點告訴使用者。
+6. 收尾檢查：`tracker.md` 的「最後更新」是今天；然後刪掉 `TMP`，列一次 `HOME_DIR` 確認只剩規定的檔案。
+7. 第 3 天：合併成本輪修改案給使用者看，使用者同意的部分才改 Skill 並推到 GitHub。
 
 ## 出錯時怎麼辦
 
